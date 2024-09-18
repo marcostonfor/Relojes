@@ -1,4 +1,9 @@
 export function conf12h() {
+    const config = document.createElement('DETAILS');
+    const summary = document.createElement('SUMMARY');
+    summary.innerHTML = `&#9881;`;
+    config.appendChild(summary);
+    
     // Verificar si el checkbox ya existe
     if (!document.getElementById('miCheckbox')) {
         const checkbox = document.createElement('input');
@@ -8,7 +13,7 @@ export function conf12h() {
 
         const label = document.createElement('label');
         label.htmlFor = 'miCheckbox'; // Asegúrate de que coincida con el id del checkbox
-        label.textContent = 'Mostrar contenido de <sup>';
+        label.textContent = 'Ver "am" "pm"';
 
         // Crear un elemento <style> para manejar la visibilidad de <sup>
         let estils = document.getElementById('dynamicStyles');
@@ -41,8 +46,10 @@ export function conf12h() {
         // Agregar un evento al checkbox para alternar la visibilidad de <sup>
         checkbox.addEventListener('change', updateSupVisibility);
 
+        const mostrarConfiguracion = document.getElementById('caja12h');
         // Agregar el checkbox y el label al cuerpo del documento
-        document.body.appendChild(label);
-        document.body.appendChild(checkbox);
+        label.appendChild(checkbox);
+        config.appendChild(label);
+        mostrarConfiguracion.appendChild(config);
     }
 }

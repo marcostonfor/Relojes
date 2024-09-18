@@ -1,3 +1,4 @@
+
 import { estilosPersonales } from './archivoEstilos.js';
 import { conf12h } from './archivoConfiguracion.js';
 function laHora() {
